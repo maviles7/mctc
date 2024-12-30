@@ -8,4 +8,7 @@ const postsCtrl = require('../controllers/posts');
 // GET /api/posts --> INDEX FUNCTIONALITY 
 router.get('/', postsCtrl.index);
 
+// POST /api/posts --> CREATE FUNCTIONALITY
+router.post('/', postsCtrl.create);
+
 module.exports = router;
