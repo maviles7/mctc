@@ -9,11 +9,15 @@ module.exports = {
 
 async function signup(req, res) {
   try {
+    const existinguser = await User.findOne({ email: req.body.email });
+    if (existinguser) {
+      return res.status(400).json({ message: 'email already associated with account.' });
+    }
     const user = await User.create(req.body);
     const token = createJWT(user);
     res.json(token);
-  } catch (err) {
-    res.status(400).json({ message: 'Duplicate email' });
+    } catch (err) {
+    res.status(400).json({ message: err.message });
   }
 }
 
