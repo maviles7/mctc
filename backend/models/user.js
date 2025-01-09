@@ -20,6 +20,7 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
+    amigos: [{ type: Schema.Types.ObjectId, ref: 'User' }],
   },
   {
     timestamps: true,

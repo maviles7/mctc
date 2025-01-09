@@ -40,7 +40,7 @@ const postSchema = new mongoose.Schema(
             type: mongoose.Schema.Types.ObjectId,
             ref: 'User',
         },
-        commentss: [commentSchema],
+        comments: [commentSchema],
     },
     { timestamps: true }
 );
