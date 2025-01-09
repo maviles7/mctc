@@ -9,9 +9,12 @@ const postsCtrl = require('../controllers/posts');
 router.get('/', postsCtrl.index);
 
 // GET /api/posts/:id --> SHOW FUNCTIONALITY
-router.get('/:id', postsCtrl.show);
+router.get('/:postId', postsCtrl.show);
 
 // POST /api/posts --> CREATE FUNCTIONALITY
 router.post('/', postsCtrl.create);
+
+// PUT /api/posts/:id --> UPDATE FUNCTIONALITY
+router.put('/:postId', postsCtrl.update);
 
 module.exports = router;
