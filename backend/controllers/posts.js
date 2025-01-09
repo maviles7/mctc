@@ -5,6 +5,7 @@ module.exports = {
     create,
     show,
     update,
+    postDelete,
 }
 
 // INDEX FUNCTIONALITY
@@ -65,7 +66,27 @@ async function update(req, res) {
         updatedPost._doc.owner = req.user;
         res.status(200).json(updatedPost);
     } catch (err) {
-        console.error(err);
+        //console.error(err);
         res.status(500).json({err});
+    }
+};
+
+// DELETE FUNCTIONALITY
+async function postDelete(req, res) {
+    try {
+        // check permissions 
+        const post = await Post.findById(req.params.postId);
+        if(!post) {
+            return res.status(404).json({msg: 'post not found.'});
+        }
+
+        if(!post.owner.equals(req.user._id)) {
+            return res.status(401).json({msg: 'not authorized.'});
+        };
+
+        const deletedPost = await Post.findByIdAndDelete(req.params.postId);
+        res.status(200).json(deletedPost);
+    } catch (err) {
+        res.status(500).json(error);
     }
 };
