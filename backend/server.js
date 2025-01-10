@@ -24,7 +24,7 @@ app.use(require('./middleware/checkToken'));
 app.use('/api/auth', require('./routes/auth'));
 const ensureLoggedIn = require('./middleware/ensureLoggedIn');
 app.use('/api/posts', ensureLoggedIn, require('./routes/posts'));
-app.use('/api/', ensureLoggedIn, require('./routes/amigos'));
+app.use('/api/user', ensureLoggedIn, require('./routes/amigos'));
 // app.use('/api/users', ensuredLoggedIn, require('./routes/comments'));
 
 app.get('*', function (req, res) {
