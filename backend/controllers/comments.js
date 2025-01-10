@@ -3,6 +3,7 @@ const Post = require('../models/posts');
 module.exports = {
     create,
     deleteComment,
+    update,
 };
 
 // CREATE COMMENT FUNCTIONALITY 
@@ -34,4 +35,17 @@ async function deleteComment(req, res) {
     } catch (err) {
         res.status(400).json({ message: err.message });
     }
-}
+};
+
+// UPDATE COMMENT FUNCTIONALITY
+async function update(req, res) {
+    try {
+        const post = await Post.findById(req.params.postId);
+        const comment = post.comments.id(req.params.commentId);
+        comment.text = req.body.text;
+        await post.save();
+        res.status(200).json(comment);
+    } catch (err) {
+        res.status(400).json({ message: err.message });
+    }   
+};
