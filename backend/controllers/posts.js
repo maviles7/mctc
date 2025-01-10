@@ -34,8 +34,8 @@ async function show(req, res) {
 
 // CREATE FUNCTIONALITY
 async function create(req, res) {
-    console.log('user:', req.user);
-    console.log('body:', req.body);
+    //console.log('user:', req.user);
+    //console.log('body:', req.body);
     try {
         req.body.owner = req.user._id;
         const post = await Post.create(req.body);
