@@ -2,6 +2,7 @@ const Post = require('../models/posts');
 
 module.exports = {
     create,
+    deleteComment,
 };
 
 // CREATE COMMENT FUNCTIONALITY 
@@ -22,3 +23,15 @@ async function create(req, res) {
         res.status(400).json({ message: err.message });
     }
 };
+
+// DELETE COMMENT FUNCTIONALITY
+async function deleteComment(req, res) {
+    try {
+        const post = await Post.findById(req.params.postId);
+        post.comments.remove({ _id: req.params.commentId });
+        await post.save();
+        res.status(200).json({ message: 'comment deleted.' });
+    } catch (err) {
+        res.status(400).json({ message: err.message });
+    }
+}

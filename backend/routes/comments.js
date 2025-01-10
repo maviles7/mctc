@@ -8,4 +8,7 @@ const commentsCtrl = require('../controllers/comments');
 // POST /api/comments/:postId --> CREATE FUNCTIONALITY
 router.post('/posts/:postId/comments', commentsCtrl.create);
 
+// DELETE /api/comments/:postId/:commentId --> DELETE FUNCTIONALITY
+router.delete('/posts/:postId/comments/:commentId', commentsCtrl.deleteComment);
+
 module.exports = router;
