@@ -3,6 +3,7 @@ const Post = require("../models/posts");
 
 module.exports = {
   addItem,
+  removeItem,
 };
 
 // add post to closet functionality
@@ -27,4 +28,20 @@ async function addItem(req, res) {
     console.error(err);
     res.status(500).json({ message: err.message });
   }
-}
+}; 
+
+// remove post from closet functionality
+async function removeItem(req, res) {
+    try {
+        const user = await User.findById(req.user._id);
+        const post = await Post.findById(req.params.postId);    
+        if (!post) {
+            return res.status(400).json({ message: 'post not found.' });
+        }
+        user.closet = user.closet.filter(postId => !postId.equals(post._id));
+        await user.save();
+        res.status(201).json(user);
+    } catch (err) {
+        res.status(400).json({ message: err.message });
+    }
+};
