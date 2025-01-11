@@ -21,6 +21,7 @@ const userSchema = new Schema(
       required: true,
     },
     amigos: [{ type: Schema.Types.ObjectId, ref: 'User' }],
+    closet: [{ type: Schema.Types.ObjectId, ref: 'Post' }],
   },
   {
     timestamps: true,
