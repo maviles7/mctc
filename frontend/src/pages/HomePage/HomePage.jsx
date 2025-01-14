@@ -6,7 +6,9 @@ export default function HomePage({ posts,user }) {
     {user ? (
       <main>
         {posts.map((post) => (
-          <p key={post._id}>{post.title}</p>
+          <Link key={post._id} to={`/posts/${post._id}`}>
+            <p>{post.title}</p>
+          </Link>
         ))}
       </main>
     ) : (
