@@ -3,10 +3,13 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import * as postService from '../../services/postService';  
-import { set } from "mongoose";
+import * as commentService from '../../services/commentService';
+
+import CommentForm from "../../components/CommentForm/CommentForm";
 
 const PostDetailsPage = ({ user, handleDeletePost }) => {
     const { postId } = useParams();
+    
     // console.log('postId:', postId);
 
     const [post, setPost] = useState(null);
@@ -19,7 +22,13 @@ const PostDetailsPage = ({ user, handleDeletePost }) => {
         fetchPost();
     }, [postId]);
 
-    console.log('post:', post);
+    const handleAddComment = async (commentFormData) => {
+        const newComment = await commentService.create(postId, commentFormData);
+        setPost({
+            ...post,
+            comments: [...post.comments, newComment],
+        });
+    };
 
     if (!post) return <main>oops. post not found.</main>
 
@@ -37,6 +46,7 @@ const PostDetailsPage = ({ user, handleDeletePost }) => {
             )}
             <div>
                 <h3>comments</h3>
+                <CommentForm handleAddComment={handleAddComment} />
                 {!post.comments.length && <p>no comments.</p>}
                 {post.comments.map((comment) => (
                     <article key={comment._id}>
