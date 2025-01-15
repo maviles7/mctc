@@ -7,7 +7,9 @@ export default function HomePage({ posts,user }) {
       <main>
         {posts.map((post) => (
           <Link key={post._id} to={`/posts/${post._id}`}>
-            <p>{post.title}</p>
+            <ul>
+              <li>{post.title}</li>
+            </ul>
           </Link>
         ))}
       </main>

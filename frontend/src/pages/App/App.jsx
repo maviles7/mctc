@@ -11,6 +11,7 @@ import PostDetailsPage from '../PostDetailsPage/PostDetailsPage';
 import NewPostPage from '../NewPostPage/NewPostPage';
 import SignUpPage from '../SignUpPage/SignUpPage';
 import LogInPage from '../LogInPage/LogInPage';
+import PostForm from '../../components/PostForm/PostForm';
 
 import * as postService from '../../services/postService';
 
@@ -18,7 +19,7 @@ function App() {
   const [user, setUser] = useState(getUser());
   const [posts, setPosts] = useState([]);
 
-  //const navigate = useNavigate();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchAllPosts = async () => {
@@ -27,6 +28,13 @@ function App() {
     };
     if (user) fetchAllPosts();
   }, [user]);
+
+  const handleAddPost = async (postFormData) => {
+    console.log('postFormData:', postFormData);
+    const newPost = await postService.create(postFormData);
+    setPosts([newPost, ...posts]);
+    navigate('/posts');
+  };
 
   return (
     <main id="react-app">
@@ -37,7 +45,7 @@ function App() {
             <Route path="/" element={<HomePage posts={posts} user={user} />} />
             <Route path="/myposts" element={<MyPostListPage />} />
             <Route path="/posts/:postId" element={<PostDetailsPage user={user} />} />
-            <Route path="/posts/new" element={<NewPostPage />} />
+            <Route path="/posts/new" element={<PostForm handleAddPost={handleAddPost} />} />
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         ) : (
