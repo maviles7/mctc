@@ -42,6 +42,12 @@ function App() {
     navigate('/posts');
   };
 
+  const handleUpdatePost = async (postId, postFormData) => {
+    const updatedPost = await postService.update(postId, postFormData);
+    setPosts(posts.map((post) => (post._id === updatedPost._id ? updatedPost : post)));
+    navigate(`/posts/${postId}`);
+  };
+
   return (
     <main id="react-app">
       <NavBar user={user} setUser={setUser} />
@@ -52,6 +58,7 @@ function App() {
             <Route path="/myposts" element={<MyPostListPage />} />
             <Route path="/posts/:postId" element={<PostDetailsPage user={user} handleDeletePost={handleDeletePost} />} />
             <Route path="/posts/new" element={<PostForm handleAddPost={handleAddPost} />} />
+            <Route path="/posts/:postId/edit" element={<PostForm handleUpdatePost={handleUpdatePost} />} />
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         ) : (

@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 import * as postService from '../../services/postService';  
 import { set } from "mongoose";
@@ -29,7 +30,10 @@ const PostDetailsPage = ({ user, handleDeletePost }) => {
                 <h3>{post.owner.username}</h3>
             </div>
             {post.owner._id === user. _id && (
+                <>
+                <Link to={`/posts/${postId}/edit`}>edit.</Link>
                 <button onClick={() => handleDeletePost(postId)}>delete.</button>
+                </>
             )}
             <div>
                 <h3>comments</h3>

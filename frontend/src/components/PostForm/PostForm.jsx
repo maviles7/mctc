@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-import * as postService from "../../services/postService";  
+import * as postService from "../../services/postService";
 
 const PostForm = (props) => {
   const [postFormData, setPostFormData] = useState({
@@ -36,12 +36,17 @@ const PostForm = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    props.handleAddPost(postFormData);
+    if (postId) {
+      props.handleUpdatePost(postId, postFormData);
+    } else {
+      props.handleAddPost(postFormData);
+    }
   };
 
   return (
     <main>
       <form onSubmit={handleSubmit}>
+        <h1>{postId ? "edit post" : "new post"}</h1>
         <label htmlFor="title-input">Title:</label>
         <input
           required
