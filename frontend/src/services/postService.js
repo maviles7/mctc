@@ -28,3 +28,17 @@ export async function create(postFormData) {
         console.log(error);
     }
 };
+
+export async function deletePost(postId) {
+    try {
+        const res = await fetch(`${BASE_URL}/${postId}`, {
+            method: 'DELETE',
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+        });
+        return res.json();
+    } catch (error) {
+        console.log(error);
+    }
+};

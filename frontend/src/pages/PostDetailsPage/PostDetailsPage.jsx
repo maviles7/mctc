@@ -4,9 +4,9 @@ import { useState, useEffect } from 'react';
 import * as postService from '../../services/postService';  
 import { set } from "mongoose";
 
-const PostDetailsPage = ({ user }) => {
+const PostDetailsPage = ({ user, handleDeletePost }) => {
     const { postId } = useParams();
-    console.log('postId:', postId);
+    // console.log('postId:', postId);
 
     const [post, setPost] = useState(null);
 
@@ -28,6 +28,9 @@ const PostDetailsPage = ({ user }) => {
                 <h1>{post.title}</h1>
                 <h3>{post.owner.username}</h3>
             </div>
+            {post.owner._id === user. _id && (
+                <button onClick={() => handleDeletePost(postId)}>delete.</button>
+            )}
             <div>
                 <h3>comments</h3>
                 {!post.comments.length && <p>no comments.</p>}
