@@ -30,6 +30,14 @@ const PostDetailsPage = ({ user, handleDeletePost }) => {
         });
     };
 
+    const handleDeleteComment = async (commentId) => {
+        const deleteComment = await commentService.deleteComment(postId, commentId);
+        setPost({
+            ...post,
+            comments: post.comments.filter((comment) => comment._id !== commentId),
+        });
+    };
+
     if (!post) return <main>oops. post not found.</main>
 
     return (
@@ -56,6 +64,11 @@ const PostDetailsPage = ({ user, handleDeletePost }) => {
                             </p>
                         </header>
                         <h3>{comment.text}</h3>
+                        {comment.owner._id === user._id && (
+                            <div>
+                                <button onClick={() => handleDeleteComment(comment._id)}>delete.</button>
+                            </div>
+                        )}
                         </article>
                 ))}
             </div>
