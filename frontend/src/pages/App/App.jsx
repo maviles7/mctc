@@ -56,7 +56,7 @@ function App() {
         {user ? (
           <Routes>
             <Route path="/" element={<HomePage posts={posts} user={user} />} />
-            <Route path="/myposts" element={<MyPostListPage />} />
+            <Route path="/posts" element={<MyPostListPage posts={posts} user={user} />} />
             <Route path="/posts/:postId" element={<PostDetailsPage user={user} handleDeletePost={handleDeletePost} />} />
             <Route path="/posts/new" element={<PostForm handleAddPost={handleAddPost} />} />
             <Route path="/posts/:postId/edit" element={<PostForm handleUpdatePost={handleUpdatePost} />} />
