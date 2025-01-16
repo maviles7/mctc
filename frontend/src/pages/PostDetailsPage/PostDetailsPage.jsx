@@ -1,6 +1,5 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 
 import * as postService from '../../services/postService';  
 import * as commentService from '../../services/commentService';
@@ -9,10 +8,12 @@ import CommentForm from "../../components/CommentForm/CommentForm";
 
 const PostDetailsPage = ({ user, handleDeletePost }) => {
     const { postId } = useParams();
-    
-    // console.log('postId:', postId);
+    console.log('postId:', postId);
 
     const [post, setPost] = useState(null);
+    console.log('post:', post);
+
+    console.log('user:', user);
 
     useEffect(() => {
         const fetchPost = async () => {
@@ -64,7 +65,7 @@ const PostDetailsPage = ({ user, handleDeletePost }) => {
                             </p>
                         </header>
                         <h3>{comment.text}</h3>
-                        {comment.owner._id === user._id && (
+                        {comment.owner === user._id && (
                             <div>
                                 <Link to={`/posts/${postId}/comments/${comment._id}/edit`}>edit comment.</Link>
                                 <button onClick={() => handleDeleteComment(comment._id)}>delete.</button>
