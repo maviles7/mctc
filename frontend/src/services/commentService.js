@@ -1,7 +1,7 @@
 const BASE_URL = "/api";
 
 // CREATE COMMENT FUNCTIONALITY 
-export async function create(postId, commentFormData) {
+export async function createComment(postId, commentFormData) {
     try {
         const res = await fetch(`${BASE_URL}/posts/${postId}/comments`, {
             method: 'POST',
@@ -34,3 +34,23 @@ export async function deleteComment(postId, commentId) {
         console.log(error);
       }
 };
+
+// UPDATE COMMENT FUNCTIONALITY
+export async function updateComment(postId, commentId, commentFormData) {
+    try {
+      const res = await fetch(
+        `${BASE_URL}/posts/${postId}/comments/${commentId}`,
+        {
+          method: "PUT",
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(commentFormData),
+        }
+      );
+      return res.json();
+    } catch (error) {
+      console.log(error);
+    }
+  }

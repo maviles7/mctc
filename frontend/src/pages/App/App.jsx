@@ -12,6 +12,7 @@ import NewPostPage from '../NewPostPage/NewPostPage';
 import SignUpPage from '../SignUpPage/SignUpPage';
 import LogInPage from '../LogInPage/LogInPage';
 import PostForm from '../../components/PostForm/PostForm';
+import CommentForm from '../../components/CommentForm/CommentForm';
 
 import * as postService from '../../services/postService';
 
@@ -59,6 +60,7 @@ function App() {
             <Route path="/posts/:postId" element={<PostDetailsPage user={user} handleDeletePost={handleDeletePost} />} />
             <Route path="/posts/new" element={<PostForm handleAddPost={handleAddPost} />} />
             <Route path="/posts/:postId/edit" element={<PostForm handleUpdatePost={handleUpdatePost} />} />
+            <Route path="/posts/:postId/comments/:commentId/edit" element={<CommentForm />} />
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         ) : (

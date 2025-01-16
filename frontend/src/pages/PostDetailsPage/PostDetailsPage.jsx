@@ -23,7 +23,7 @@ const PostDetailsPage = ({ user, handleDeletePost }) => {
     }, [postId]);
 
     const handleAddComment = async (commentFormData) => {
-        const newComment = await commentService.create(postId, commentFormData);
+        const newComment = await commentService.createComment(postId, commentFormData);
         setPost({
             ...post,
             comments: [...post.comments, newComment],
@@ -66,6 +66,7 @@ const PostDetailsPage = ({ user, handleDeletePost }) => {
                         <h3>{comment.text}</h3>
                         {comment.owner._id === user._id && (
                             <div>
+                                <Link to={`/posts/${postId}/comments/${comment._id}/edit`}>edit comment.</Link>
                                 <button onClick={() => handleDeleteComment(comment._id)}>delete.</button>
                             </div>
                         )}
