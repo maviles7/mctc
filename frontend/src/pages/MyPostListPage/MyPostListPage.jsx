@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 
 import * as amigoService from "../../services/amigoService";
-import { set } from "mongoose";
-import { use } from "react";
 
 export default function MyPostListPage({ posts, user }) {
   console.log('user:', user);
+
+  const navigate = useNavigate();
 
   const [amigosInfo, setAmigosInfo] = useState("");
 
@@ -19,6 +19,13 @@ export default function MyPostListPage({ posts, user }) {
   }, []);
 
   console.log('amigos:', amigosInfo);
+
+  const handleDeleteAmigo = async (amigoId) => {
+    const updatedAmigos = await amigoService.deleteAmigo(amigoId);
+    setAmigosInfo({ amigos: updatedAmigos});
+    navigate('/posts');
+
+  };
 
   return (
     <>
@@ -39,7 +46,9 @@ export default function MyPostListPage({ posts, user }) {
         {amigosInfo.amigos && amigosInfo.amigos.length > 0 ? (
           <ul>
             {amigosInfo.amigos.map((amigo) => (
-              <li key={amigo._id}>{amigo.username}</li>
+              <li key={amigo._id}>{amigo.username}
+              <button onClick={() => handleDeleteAmigo(amigo._id)}>delete.</button>
+              </li>
             ))}
           </ul>
         ) : (

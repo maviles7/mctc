@@ -6,7 +6,7 @@ module.exports = {
     removeAmigo,
 };
 
-// get amigo functionality 
+// get freind's info functionality 
 async function getAmigo(req, res) {
     try {
         const user = await User.findById(req.user._id).populate('amigos');
