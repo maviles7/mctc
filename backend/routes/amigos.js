@@ -5,7 +5,10 @@ const amigosCtrl = require('../controllers/amigos');
 
 // all paths start w/ 'api/user'
 
-//add friend
+// get amigo
+router.get('/amigo', amigosCtrl.getAmigo);
+
+// add friend
 router.post('/add-amigo/:amigoId', amigosCtrl.addAmigo);
 
 // remove friend

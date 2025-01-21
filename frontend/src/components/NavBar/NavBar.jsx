@@ -22,7 +22,7 @@ export default function NavBar({ user, setUser }) {
             Log Out
           </Link>
           &nbsp;&nbsp;
-          <span>Welcome, {user.name}</span>
+          <span>Welcome, {user.username}</span>
         </>
       ) : (
         <>

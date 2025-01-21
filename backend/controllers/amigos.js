@@ -1,9 +1,20 @@
 const User = require('../models/user');
 
 module.exports = {
+    getAmigo,
     addAmigo,
     removeAmigo,
 };
+
+// get amigo functionality 
+async function getAmigo(req, res) {
+    try {
+        const user = await User.findById(req.user._id).populate('amigos');
+        res.status(200).json(user);
+    } catch (err) {
+        res.status(400).json({ message: err.message });
+    }
+}
 
 // add friend functionality 
 async function addAmigo(req, res) {
