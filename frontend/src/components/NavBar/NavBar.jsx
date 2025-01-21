@@ -18,10 +18,13 @@ export default function NavBar({ user, setUser }) {
           &nbsp; | &nbsp;
           <Link to="/posts/new">New Post</Link>
           &nbsp; | &nbsp;
+          <Link to="/amigos"> Find Amigos.
+          </Link>
+          &nbsp; | &nbsp;
           <Link to="" onClick={handleLogOut}>
             Log Out
           </Link>
-          &nbsp;&nbsp;
+          &nbsp; | &nbsp;
           <span>Welcome, {user.username}</span>
         </>
       ) : (

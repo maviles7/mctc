@@ -8,6 +8,9 @@ const amigosCtrl = require('../controllers/amigos');
 // get amigo
 router.get('/amigo', amigosCtrl.getAmigo);
 
+// AMIGO INDEX FUNCTIONALITY 
+router.get('/amigos', amigosCtrl.index);
+
 // add friend
 router.post('/add-amigo/:amigoId', amigosCtrl.addAmigo);
 

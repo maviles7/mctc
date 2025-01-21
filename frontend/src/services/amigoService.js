@@ -9,6 +9,15 @@ export async function getAmigo() {
   return res.json();
 }
 
+export async function index() {
+  const res = await fetch(`${BASE_URL}/user/amigos`, {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+    },
+  });
+  return res.json();
+}
+
 export async function addAmigo(amigoId) {
   const res = await fetch(`${BASE_URL}/user/add-amigo/${amigoId}`, {
     headers: {

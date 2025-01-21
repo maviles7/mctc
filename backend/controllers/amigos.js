@@ -2,6 +2,7 @@ const User = require('../models/user');
 
 module.exports = {
     getAmigo,
+    index,
     addAmigo,
     removeAmigo,
 };
@@ -13,6 +14,15 @@ async function getAmigo(req, res) {
         res.status(200).json(user);
     } catch (err) {
         res.status(400).json({ message: err.message });
+    }
+}
+
+async function index(req, res) {
+    try {
+        const users = await User.find({})
+        res.status(200).json(users);
+    } catch (err) {
+        res.status(500).json({err});
     }
 }
 

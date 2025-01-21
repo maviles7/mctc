@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 
-export default function HomePage({ posts,user }) {
+export default function HomePage({ posts, user }) {
   return (
     <>
     {user ? (
