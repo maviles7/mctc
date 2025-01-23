@@ -44,8 +44,12 @@ const PostDetailsPage = ({ user, handleDeletePost }) => {
     return (
         <>
             <div>
-                <h1>{post.title}</h1>
-                <h3>{post.owner.username}</h3>
+                <h1>{post.title} {post.avaibility && '✅'}</h1>
+                <h4>{post.owner.username}</h4>
+                <h2>{post.category}</h2>
+                <h2>{post.size}</h2>
+                <img src={post.photo} />
+                <p>{post.moreInfo}</p>
             </div>
             {post.owner._id === user. _id && (
                 <>

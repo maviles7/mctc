@@ -14,7 +14,7 @@ export default function UserListPage() {
 
   return (
     <div>
-      <h1>All Users</h1>
+      <h1>Amigos</h1>
       <ul>
         {users.map((user) => (
           <li key={user._id}>{user.username}</li>
