@@ -29,6 +29,7 @@ export async function create(postFormData) {
     }
 };
 
+// DELETE FUNTIONALITY
 export async function deletePost(postId) {
     try {
         const res = await fetch(`${BASE_URL}/${postId}`, {
@@ -43,6 +44,7 @@ export async function deletePost(postId) {
     }
 };
 
+//UPDATE FUNCTIONALITY
 export async function update(postId, postFormData) {
     try {
         const res = await fetch(`${BASE_URL}/${postId}`, {
@@ -52,6 +54,21 @@ export async function update(postId, postFormData) {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(postFormData)
+        });
+        return res.json();
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+// GET ALL POSTS BY A USER
+export async function getAmigoPosts(userId) {
+    try {
+        const res = await fetch(`${BASE_URL}/amigos/${userId}`, {
+            method: 'GET',
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`
+            }
         });
         return res.json();
     } catch (error) {

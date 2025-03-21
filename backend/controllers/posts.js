@@ -6,6 +6,7 @@ module.exports = {
     show,
     update,
     postDelete,
+    getAmigoPosts,
 }
 
 // INDEX FUNCTIONALITY
@@ -88,5 +89,17 @@ async function postDelete(req, res) {
         res.status(200).json(deletedPost);
     } catch (err) {
         res.status(500).json(error);
+    }
+};
+
+// GET ALL POSTS BY A USER
+async function getAmigoPosts(req, res) { 
+    try {
+        const amigoPosts = await Post.find({ owner: req.params.userId })
+            .populate('owner')
+            .sort({ createdAt: 'desc' });
+        res.status(200).json(amigoPosts);
+    } catch (err) {
+        res.status(500).json({ err });
     }
 };

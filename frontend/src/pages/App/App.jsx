@@ -12,6 +12,7 @@ import NewPostPage from '../NewPostPage/NewPostPage';
 import SignUpPage from '../SignUpPage/SignUpPage';
 import LogInPage from '../LogInPage/LogInPage';
 import AmigoListPage from '../AmigoListPage/AmigoListPage';
+import AmigoPostListPage from '../AmigoPostListPage/AmigoPostListPage';
 import PostForm from '../../components/PostForm/PostForm';
 import CommentForm from '../../components/CommentForm/CommentForm';
 
@@ -63,6 +64,7 @@ function App() {
             <Route path="/posts/:postId/edit" element={<PostForm handleUpdatePost={handleUpdatePost} />} />
             <Route path="/posts/:postId/comments/:commentId/edit" element={<CommentForm />} />
             <Route path="/amigos" element={<AmigoListPage />} />
+            <Route path="/amigos/:amigoId/posts" element={<AmigoPostListPage />} />
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         ) : (

@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import * as amigoService from '../../services/amigoService';
+
 
 export default function UserListPage() {
   const [users, setUsers] = useState([]);
@@ -17,7 +19,9 @@ export default function UserListPage() {
       <h1>Amigos</h1>
       <ul>
         {users.map((user) => (
-          <li key={user._id}>{user.username}</li>
+          <li key={user._id}>
+            <Link to={`/users/${user._id}/posts`}>{user.username}</Link>
+          </li>
         ))}
       </ul>
     </div>

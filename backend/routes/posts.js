@@ -20,4 +20,7 @@ router.put('/:postId', postsCtrl.update);
 // DELETE /api/posts/:id --> DELETE FUNCTIONALITY
 router.delete('/:postId', postsCtrl.postDelete);
 
+// GET /api/posts/user/:userId --> GET ALL POSTS BY A USER
+router.get('/amigos/:userId', postsCtrl.getAmigoPosts);
+
 module.exports = router;
