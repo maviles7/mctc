@@ -64,7 +64,7 @@ function App() {
             <Route path="/posts/:postId/edit" element={<PostForm handleUpdatePost={handleUpdatePost} />} />
             <Route path="/posts/:postId/comments/:commentId/edit" element={<CommentForm />} />
             <Route path="/amigos" element={<AmigoListPage />} />
-            <Route path="/amigos/:amigoId/posts" element={<AmigoPostListPage />} />
+            <Route path="/amigos/:userId/posts" element={<AmigoPostListPage />} />
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         ) : (
