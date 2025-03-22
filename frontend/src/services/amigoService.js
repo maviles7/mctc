@@ -20,6 +20,7 @@ export async function index() {
 
 export async function addAmigo(amigoId) {
   const res = await fetch(`${BASE_URL}/user/add-amigo/${amigoId}`, {
+    method: "POST",
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${localStorage.getItem("token")}`,
