@@ -6,7 +6,8 @@ import * as amigoService from '../../services/amigoService';
 export default function AmigoPostListPage() {
   const { userId } = useParams();
   const [posts, setPosts] = useState([]);
-  // const [isAmigoAdded, setIsAmigoAdded] = useState(false);
+  const [isAmigoAdded, setIsAmigoAdded] = useState(false); // State to track if amigo is added
+
 
   useEffect(() => {
     const fetchUserPosts = async () => {
@@ -17,21 +18,23 @@ export default function AmigoPostListPage() {
     fetchUserPosts();
   }, [userId]);
 
-  // const handleAddAmigo = async () => {
-  //   try {
-  //     await amigoService.addAmigo(userId); // Call the service function to add amigo
-  //     setIsAmigoAdded(true); // Update the state to indicate amigo is added
-  //   } catch (error) {
-  //     console.error('Error adding amigo:', error);
-  //   }
-  // };
+  const handleAddAmigo = async () => {
+    try {
+      await amigoService.addAmigo(userId); // Call the service function to add amigo
+      setIsAmigoAdded(true); // Update the state to indicate amigo is added
+    } catch (error) {
+      console.error('Error adding amigo:', error);
+    }
+  };
 
   const username = posts[0]?.owner?.username || '';
 
   return (
     <div>
       <h1>{username ? `${username}` : 'loading...' }</h1>
-      {/* <button onClick={handleAddAmigo}>add amigo.</button> */}
+      <button onClick={handleAddAmigo} disabled={isAmigoAdded}>
+        {isAmigoAdded ? 'Amigo Added' : 'Add Amigo'}
+      </button>
       {posts.length > 0 ? (
         <ul>
           {posts.map((post) => (
