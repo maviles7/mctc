@@ -42,7 +42,7 @@ export default function MyPostListPage({ posts, user }) {
           ))}
       </div>
       <div>
-        <h1>My Amigos.</h1>
+        <h1>my amigos</h1>
         {amigosInfo.amigos && amigosInfo.amigos.length > 0 ? (
           <ul>
             {amigosInfo.amigos.map((amigo) => (
@@ -54,6 +54,9 @@ export default function MyPostListPage({ posts, user }) {
         ) : (
           <p>No amigos found.</p>
         )}
+      </div>
+      <div>
+        <h1>my closet</h1>
       </div>
     </>
   );
