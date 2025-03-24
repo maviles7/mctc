@@ -19,7 +19,7 @@ export default function MyPostListPage({ posts, user }) {
     };
 
     const fetchClosetItems = async () => {
-      const fetchedClosetItems = await closetService.getClosetItems();
+      const fetchedClosetItems = await closetService.index();
       setClosetItems(fetchedClosetItems); // Set closet items in state
     };
 
