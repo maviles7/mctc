@@ -21,3 +21,13 @@ export async function addItem(postId) {
     });
     return res.json();
 }
+
+export async function deleteItem(postId) {
+    const res = await fetch(`${BASE_URL}/closet/remove-item/${postId}`, {
+        method: "DELETE",
+        headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+    });
+    return res.json(); 
+} 

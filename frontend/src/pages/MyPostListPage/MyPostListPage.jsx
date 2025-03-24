@@ -36,6 +36,15 @@ export default function MyPostListPage({ posts, user }) {
 
   };
 
+  const handleRemoveFromCloset = async (postId) => {
+    try {
+      const updatedClosetItems = await closetService.deleteItem(postId); // Call the service function
+      setClosetItems(updatedClosetItems); // Update the state with the updated closet items
+    } catch (error) {
+      console.error("Error removing item from closet:", error);
+    }
+  };
+
   return (
     <>
       <div>
@@ -71,6 +80,7 @@ export default function MyPostListPage({ posts, user }) {
             {closetItems.map((item) => (
               <li key={item._id}>
                 <Link to={`/posts/${item._id}`}>{item.title}</Link>
+                <button onClick={() => handleRemoveFromCloset(item._id)}>Remove</button>
               </li>
             ))}
           </ul>
