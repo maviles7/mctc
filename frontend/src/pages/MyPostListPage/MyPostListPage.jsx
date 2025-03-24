@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 
 import * as amigoService from "../../services/amigoService";
+import * as closetService from "../../services/closetService";
 
 export default function MyPostListPage({ posts, user }) {
   console.log('user:', user);
@@ -9,13 +10,21 @@ export default function MyPostListPage({ posts, user }) {
   const navigate = useNavigate();
 
   const [amigosInfo, setAmigosInfo] = useState("");
+  const [closetItems, setClosetItems] = useState([]);
 
   useEffect(() => {
     const fetchAmigosInfo = async () => {
       const fetchedAmigos = await amigoService.getAmigo();
       setAmigosInfo(fetchedAmigos);
     };
+
+    const fetchClosetItems = async () => {
+      const fetchedClosetItems = await closetService.getClosetItems();
+      setClosetItems(fetchedClosetItems); // Set closet items in state
+    };
+
     fetchAmigosInfo();
+    fetchClosetItems();
   }, []);
 
   console.log('amigos:', amigosInfo);
@@ -57,6 +66,17 @@ export default function MyPostListPage({ posts, user }) {
       </div>
       <div>
         <h1>my closet</h1>
+        {closetItems.length > 0 ? (
+          <ul>
+            {closetItems.map((item) => (
+              <li key={item._id}>
+                <Link to={`/posts/${item._id}`}>{item.title}</Link>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p>No items in closet.</p>
+        )}
       </div>
     </>
   );

@@ -17,6 +17,7 @@ async function getAmigo(req, res) {
     }
 }
 
+// amigo index functionality
 async function index(req, res) {
     try {
         const users = await User.find({})

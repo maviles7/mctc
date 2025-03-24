@@ -2,9 +2,20 @@ const User = require("../models/user");
 const Post = require("../models/posts");
 
 module.exports = {
+  index,
   addItem,
   removeItem,
 };
+
+// closet index functionality
+async function index(req, res) {
+  try {
+    const user = await User.findById(req.user._id).populate("closet");
+    res.status(200).json(user.closet);
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
+}
 
 // add post to closet functionality
 async function addItem(req, res) {
