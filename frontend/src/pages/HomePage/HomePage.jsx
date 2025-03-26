@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"; 
 import { useState } from "react";
 import * as closetService from "../../services/closetService";
+import mctcLogo from "../../assets/mctc_logo.png"; // Import the logo image
 
 export default function HomePage({ posts, user }) {
   const [addedToCloset, setAddedToCloset] = useState([]);
@@ -18,7 +19,7 @@ export default function HomePage({ posts, user }) {
     <>
     {user ? (
       <div>
-        <h1>mctc</h1>
+        <img id="home-logo" src={mctcLogo} alt="mctc logo" />
         <ul>
         {posts
           .map((post) => (
