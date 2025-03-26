@@ -49,15 +49,15 @@ export default function MyPostListPage({ posts, user }) {
     <>
       <div>
         <h1>my posts</h1>
+        <ul>
         {posts
           .filter((post) => post.owner._id === user._id)
           .map((post) => (
             <Link key={post._id} to={`/posts/${post._id}`}>
-              <ul>
                 <li>{post.title}</li>
-              </ul>
             </Link>
           ))}
+          </ul>
       </div>
       <div>
         <h1>my amigos</h1>

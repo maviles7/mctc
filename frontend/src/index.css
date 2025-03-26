@@ -1,15 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap');
+
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  font-family: Inter, sans-serif;
 
-  color: #1a1a1a;
-  background-color: whitesmoke;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  color: #5e17eb;
+  background-color: lavender;
 }
 
 * {
@@ -21,26 +19,25 @@ body {
   min-height: 100vh;
 }
 
-h1, h2 {
-  text-align: center;
-}
 
 button {
-  border: 0.5vmin solid #1a1a1a;
+  border: 0.5vmin solid #5e17eb;
   border-radius: 0.5vmin;
   padding: 0.8vmin;
   font-size: 2vmin;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #5e17eb;
   color: whitesmoke;
   cursor: pointer;
 }
+
 button:hover {
   background-color: white;
-  color: #1a1a1a;
-  border-color: #1a1a1a;
+  color: ##5e17eb;
+  border-color: #5e17eb;
 }
+
 button:disabled {
   background-color: grey;
 }
@@ -50,26 +47,30 @@ a {
   padding: 0.5vmin;
   font-size: 2vmin;
   text-decoration: none;
-  color: #1a1a1a;
+  color: #5e17eb;
 }
 
-a:hover {
-  background-color: #1a1a1a;
-  color: whitesmoke;
+li {
+  list-style: none;
+  padding: 0;
+}
+
+ul {
+  padding: 0;
 }
 
 form {
   display: grid;
   gap: 1.2vmin;
   padding: 4vmin;
-  border: 0.5vmin solid #1a1a1a;
+  border: 0.5vmin solid #5e17eb;
   border-radius: 1vmin;
 }
 
 input {
   padding: 0.7vmin;
   font-size: 2vmin;
-  border: 0.3vmin solid #1a1a1a;
+  border: 0.3vmin solid #5e17eb;
   border-radius: 0.5vmin;
 }
 
@@ -80,10 +81,6 @@ form > button:last-child {
 label {
   font-size: 2vmin;
   font-weight: bold;
-}
-
-h2 {
-  text-align: center;
 }
 
 .error-message {
