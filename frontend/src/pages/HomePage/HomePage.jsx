@@ -24,7 +24,7 @@ export default function HomePage({ posts, user }) {
         {posts
           .map((post) => (
             <li key={post._id}>
-              <Link to={`/posts/${post._id}`}>{post.title}</Link>
+              <Link to={`/posts/${post._id}`}>{post.title}<img src={post.photo}></img></Link>
               <button
                 onClick={() => handleAddToCloset(post._id)} // Add post to closet
                 disabled={addedToCloset.includes(post._id)} // Disable button if already added

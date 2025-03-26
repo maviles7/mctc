@@ -88,3 +88,8 @@ label {
 h1 {
   font-family: syne, sans-serif;
 }
+
+img {
+  height: 30vh; 
+  width: auto;
+}
