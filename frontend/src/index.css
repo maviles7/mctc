@@ -54,6 +54,12 @@ li {
 }
 
 ul {
+  display: flex; /* Make the <ul> a flex container */
+  flex-wrap: wrap; /* Allow wrapping */
+  justify-content: center; /* Center the posts */
+  padding: 0;
+  margin: 0;
+  list-style: none; /* Remove default list styling */
   padding: 0;
 }
 
@@ -85,8 +91,9 @@ label {
   color: rgb(166, 29, 29);
 }
 
-h1 {
+h1, h4 {
   font-family: syne, sans-serif;
+  text-align: center;
 }
 
 img {
@@ -117,15 +124,6 @@ img {
   flex-wrap: wrap; /* Allow posts to wrap to the next row */
   gap: 2rem; /* Add spacing between rows and columns */
   padding: 1rem;
-}
-
-ul {
-  display: flex; /* Make the <ul> a flex container */
-  flex-wrap: wrap; /* Allow wrapping */
-  justify-content: center; /* Center the posts */
-  padding: 0;
-  margin: 0;
-  list-style: none; /* Remove default list styling */
 }
 
 .homepage-post {
@@ -170,4 +168,59 @@ ul {
 .homepage-post button:disabled {
   background-color: #ccc;
   cursor: not-allowed;
+}
+
+.MPLP-container {
+  display: flex; /* Make the container a flexbox */
+  justify-content: space-between; /* Add space between the columns */
+  align-items: flex-start; /* Align items to the top */
+  gap: 2rem; /* Add spacing between columns */
+  padding: 1rem; /* Add padding around the container */
+}
+
+.MPLP-myposts-container,
+.MPLP-mycloset-container,
+.MPLP-myamigos-container {
+  flex: 1; /* Each column takes up equal space */
+  max-width: 30%; /* Optional: Limit the maximum width of each column */
+  box-sizing: border-box; /* Include padding and borders in the width calculation */
+}
+
+.MPLP-myposts-container ul,
+.MPLP-mycloset-container ul,
+.MPLP-myamigos-container ul {
+  list-style: none; /* Remove default list styling */
+  padding: 0;
+  margin: 0;
+}
+
+.MPLP-myposts-container img,
+.MPLP-mycloset-container img {
+  max-width: 100%; /* Ensure images don't exceed the container width */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.MPLP-myposts-post,
+.MPLP-mycloset-post {
+  box-sizing: border-box; /* Include padding and borders in the width calculation */
+  text-align: center; /* Center-align text inside posts */
+  background-color: #f9f9f9; /* Optional: Add a background color */
+  border: 1px solid #ddd; /* Optional: Add a border */
+  border-radius: 8px; /* Optional: Add rounded corners */
+  padding: 1rem;
+  margin: 1rem; /* Add margin around each post */
+  margin: 2rem; /* Add margin around each post */
+}
+
+.MPLP-mycloset-post {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center-align items inside the post */
+}
+
+.MPLP-myamigo {
+  display: flex;
+  justify-content: center; /* Center-align items inside the post */
+  align-items: center; /* Center-align items inside the post */
+  gap: 1rem;  /* Add spacing between columns */
 }
