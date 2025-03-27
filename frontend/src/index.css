@@ -227,3 +227,30 @@ img {
   align-items: center; /* Center-align items inside the post */
   gap: 1rem;  /* Add spacing between columns */
 }
+
+.amigos-page-list{
+  flex-direction: column;
+  align-items: center; /* Center-align items inside the post */
+  gap: 1rem;  /* Add spacing between columns */
+  padding: 1rem; /* Add padding around the container */
+}
+
+.amigos-page-amigo > button {
+  margin-top: 0.5rem;
+  padding: 0.3rem 0.6rem;
+  background-color: #5e17eb;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.amigos-page-amigo > button:hover {
+  margin-top: 0.5rem;
+  padding: 0.3rem 0.6rem;
+  background-color: lavender;
+  color: #5e17eb;
+  border: 0.5vmin solid #5e17eb;
+  border-radius: 10px;
+  cursor: pointer;
+}

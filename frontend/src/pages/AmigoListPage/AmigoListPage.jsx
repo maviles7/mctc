@@ -27,9 +27,9 @@ export default function AmigoListPage() {
   return (
     <div>
        <h1>Amigos</h1>
-      <ul>
+      <ul className="amigos-page-list">
         {users.map((user) => (
-          <li key={user._id}>
+          <li key={user._id} className="amigos-page-amigo">
             <Link to={`/amigos/${user._id}/posts`}>{user.username}</Link> 
             <button
               onClick={() => handleAddAmigo(user._id)} // Pass the user's _id to handleAddAmigo
