@@ -47,7 +47,7 @@ const PostForm = (props) => {
     <main>
       <form onSubmit={handleSubmit}>
         <h1>{postId ? "edit post" : "new post"}</h1>
-        <label htmlFor="title-input">Title:</label>
+        <label htmlFor="title-input">title:</label>
         <input
           required
           type="text"
@@ -55,7 +55,7 @@ const PostForm = (props) => {
           value={postFormData.title}
           onChange={handleChange}
         />
-        <label htmlFor="category-input">Category:</label>
+        <label htmlFor="category-input">category:</label>
         <select
           required
           name="category"
@@ -69,9 +69,9 @@ const PostForm = (props) => {
           <option value="jeans">jeans</option>
           <option value="shorts">shorts</option>
           <option value="skirts">skirts</option>
-          <option value="dresses">dresse</option>
+          <option value="dresses">dresses</option>
         </select>
-        <label htmlFor="size-input">size:</label>
+        <label htmlFor="size-input">sizing info:</label>
         <input
           required
           type="text"
@@ -79,21 +79,21 @@ const PostForm = (props) => {
           value={postFormData.size}
           onChange={handleChange}
         />
-        <label htmlFor="avaibility-input">avaibility:</label>
+        <label htmlFor="avaibility-input">currently available to share:</label>
         <input
           type="checkbox"
           name="avaibility"
           value={postFormData.avaibility}
           onChange={handleChange}
         />
-        <label htmlFor="photo-input">photo:</label>
+        <label htmlFor="photo-input">link to photo:</label>
         <input
           type="text"
           name="photo"
           value={postFormData.photo}
           onChange={handleChange}
         />
-        <label htmlFor="moreInfo-input">moreInfo:</label>
+        <label htmlFor="moreInfo-input">additional info:</label>
         <input
           type="text"
           name="moreInfo"
