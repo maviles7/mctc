@@ -254,3 +254,38 @@ img {
   border-radius: 10px;
   cursor: pointer;
 }
+
+.post-details-page {
+  display: flex; /* Make the container a flexbox */
+  justify-content: space-between; /* Add space between the two columns */
+  align-items: flex-start; /* Align items to the top */
+  gap: 2rem; /* Add spacing between the columns */
+  padding: 1rem; /* Add padding around the container */
+}
+
+.PDP-post-container,
+.PDP-comments-container {
+  flex: 1; /* Each column takes up equal space */
+  max-width: 48%; /* Optional: Limit the maximum width of each column */
+  box-sizing: border-box; /* Include padding and borders in the width calculation */
+}
+
+.PDP-post-container img {
+  max-width: 100%; /* Ensure the image doesn't exceed the container width */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.PDP-post-container > div {
+  display: flex;
+  justify-content: center; /* Center-align items inside the post */
+  align-items: center; /* Align items to the top */
+  flex-direction: column; /* Stack items vertically */
+}
+
+.PDP-comments-container {
+  display: flex;
+  justify-content: center; /* Center-align items inside the post */
+  align-items: center; /* Align items to the top */
+  flex-direction: column; /* Stack comments vertically */
+  gap: 1rem; /* Add spacing between comments */
+}
