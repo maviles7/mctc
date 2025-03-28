@@ -17,6 +17,13 @@ body {
   min-height: 100vh;
 }
 
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0; 
+  width: 100%; 
+  text-align: center;
+}
 
 button {
   border: 0.5vmin solid #5e17eb;
