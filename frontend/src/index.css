@@ -141,6 +141,10 @@ img {
   margin: 1rem; /* Add margin around each post */
   margin: 2rem; /* Add margin around each post */
 }
+.homepage-post:hover {
+  transform: scale(1.05); /* Optional: Add a hover effect */
+  transition: transform 0.2s ease-in-out;
+}
 
 .homepage-post img {
   max-width: 100%; /* Ensure images don't exceed the container width */

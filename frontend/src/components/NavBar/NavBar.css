@@ -6,5 +6,9 @@
 }
 
 .NavBar span {
-  color: rgb(108, 9, 87);
+  color: #5e17eb;
+}
+
+.NavBar a:hover {
+  text-shadow: 2px 2px 5px rgb(176, 138, 220);
 }

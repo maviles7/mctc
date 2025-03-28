@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom';
-import * as authService from '../../services/authService';
-import './NavBar.css';
+import { Link } from "react-router-dom";
+import * as authService from "../../services/authService";
+import "./NavBar.css";
 
 export default function NavBar({ user, setUser }) {
   function handleLogOut() {
@@ -10,28 +10,27 @@ export default function NavBar({ user, setUser }) {
 
   return (
     <nav className="NavBar">
-      <Link to="/">Home</Link>
+      <Link to="/">mctc</Link>
       &nbsp; | &nbsp;
       {user ? (
         <>
-          <Link to="/posts"> My Post List</Link>
+          <Link to="/posts"> mi closet</Link>
           &nbsp; | &nbsp;
-          <Link to="/posts/new">New Post</Link>
+          <Link to="/posts/new">upload stuff to closet</Link>
           &nbsp; | &nbsp;
-          <Link to="/amigos"> Find Amigos.
-          </Link>
+          <Link to="/amigos"> find amigos</Link>
           &nbsp; | &nbsp;
           <Link to="" onClick={handleLogOut}>
-            Log Out
+            log out
           </Link>
           &nbsp; | &nbsp;
-          <span>Welcome, {user.username}</span>
+          <span>hola, {user.username}</span>
         </>
       ) : (
         <>
-          <Link to="/login">Log In</Link>
+          <Link to="/login">log in</Link>
           &nbsp; | &nbsp;
-          <Link to="/signup">Sign Up</Link>
+          <Link to="/signup">sign up</Link>
         </>
       )}
     </nav>
