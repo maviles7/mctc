@@ -289,3 +289,56 @@ img {
   flex-direction: column; /* Stack comments vertically */
   gap: 1rem; /* Add spacing between comments */
 }
+
+.amigo-post-list-page {
+  display: flex; 
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;
+  gap: 1rem; /* Add spacing between comments */
+}
+
+.amigo-post-list-page > div {
+  display: flex;
+  gap: 2rem; 
+}
+
+.amigo-posts-container {
+  display: flex; /* Make the container a flexbox */
+  flex-wrap: wrap; /* Allow posts to wrap to the next row */
+  justify-content: center; /* Center the posts horizontally */
+  gap: 2rem; /* Add spacing between posts */
+  padding: 1rem; /* Add padding around the container */
+}
+
+.amigo-posts-container ul {
+  display: flex; /* Make the <ul> a flex container */
+  flex-wrap: wrap; /* Allow wrapping */
+  justify-content: center; /* Center the posts */
+  padding: 0;
+  margin: 0;
+  list-style: none; /* Remove default list styling */
+  gap: 2rem; /* Add spacing between rows and columns */
+}
+
+.amigo-posts-container li {
+  flex: 1 1 calc(25% - 2rem); /* Each post takes up 25% of the row minus the gap */
+  max-width: calc(25% - 2rem); /* Ensure posts don't exceed 25% of the row */
+  box-sizing: border-box; /* Include padding and borders in the width calculation */
+  text-align: center; /* Center-align text inside posts */
+  background-color: #f9f9f9; /* Optional: Add a background color */
+  border: 1px solid #ddd; /* Optional: Add a border */
+  border-radius: 8px; /* Optional: Add rounded corners */
+  padding: 1rem;
+}
+
+.amigo-posts-container img {
+  max-width: 100%; /* Ensure images don't exceed the container width */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 4px; /* Optional: Add rounded corners to images */
+}
+
+.amigo-posts-container li:hover {
+  transform: scale(1.05); /* Optional: Add a hover effect */
+  transition: transform 0.2s ease-in-out;
+}
