@@ -81,7 +81,7 @@ export default function MyPostListPage({ posts, user }) {
               ))}
             </ul>
           ) : (
-            <p>No items in closet.</p>
+            <p>empty closet.</p>
           )}
         </div>
         <div className="MPLP-myamigos-container">

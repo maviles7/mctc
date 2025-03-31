@@ -62,14 +62,19 @@ const PostForm = (props) => {
           value={postFormData.category}
           onChange={handleChange}
         >
+          {}
           <option value="jackets/coats">jackets/coats</option>
           <option value="sweaters">shirts</option>
-          <option value="tops">tops</option>
+          <option value="fancy tops">fancy tops</option>
+          <option value="casual tops">casual tops</option>
           <option value="pants">pants</option>
           <option value="jeans">jeans</option>
           <option value="shorts">shorts</option>
           <option value="skirts">skirts</option>
           <option value="dresses">dresses</option>
+          <option value="bags">bags</option>
+          <option value="accessories">accessories</option>
+          <option value="athletic/sporty">athletic/sporty</option>
         </select>
         <label htmlFor="size-input">sizing info:</label>
         <input

@@ -20,7 +20,7 @@ const postSchema = new mongoose.Schema(
         category: {
             type: String,
             required: true,
-            enum: ['jackets/coats', 'sweaters', 'tops', 'pants', 'jeans', 'shorts', 'skirts', 'dresses'],
+            enum: ['jackets/coats', 'sweaters', 'fancy tops', 'casual tops', 'pants', 'jeans', 'shorts', 'skirts', 'dresses', 'bags', 'accessories', 'athletic/sporty'], // Enum to restrict the category to specific values
         },
         size: {
             type: String,
