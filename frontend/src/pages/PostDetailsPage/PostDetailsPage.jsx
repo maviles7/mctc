@@ -5,6 +5,7 @@ import * as postService from "../../services/postService";
 import * as commentService from "../../services/commentService";
 
 import CommentForm from "../../components/CommentForm/CommentForm";
+import ShipForm from "../../components/ShipForm/ShipForm";
 
 const PostDetailsPage = ({ user, handleDeletePost }) => {
   const { postId } = useParams();
@@ -42,6 +43,31 @@ const PostDetailsPage = ({ user, handleDeletePost }) => {
     });
   };
 
+  const handleSendAlert = async (formData) => {
+    console.log("Form Data Sent:", formData); // Debugging
+    try {
+      const token = localStorage.getItem("token");
+      const response = await fetch("/api/ship/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(formData),
+      });
+  
+      const data = await response.json();
+      if (response.ok) {
+        alert("Your request has been sent to the post owner!");
+      } else {
+        alert(`Failed to send request: ${data.error}`);
+      }
+    } catch (error) {
+      console.error("Error sending email:", error);
+      alert("An error occurred while sending your request.");
+    }
+  };
+
   if (!post) return <main>oops. post not found.</main>;
 
   return (
@@ -67,6 +93,15 @@ const PostDetailsPage = ({ user, handleDeletePost }) => {
             )}
           </div>
         </div>
+        {post.avaibility && post.owner._id !== user._id ? (
+          <ShipForm
+            postOwner={post.owner}
+            postTitle={post.title}
+            handleSendAlert={handleSendAlert}
+          />
+        ) : (
+          <h3> not avaible rn. </h3>
+        )}
         <div className="PDP-comments-container">
           <h3>comments</h3>
           <CommentForm handleAddComment={handleAddComment} />

@@ -26,6 +26,7 @@ const ensureLoggedIn = require('./middleware/ensureLoggedIn');
 app.use('/api/posts', ensureLoggedIn, require('./routes/posts'));
 app.use('/api/user', ensureLoggedIn, require('./routes/amigos'));
 app.use('/api/closet', ensureLoggedIn, require('./routes/closet'));
+app.use('/api/ship', ensureLoggedIn, require('./routes/ship'));
 app.use('/api', ensureLoggedIn, require('./routes/comments'));
 
 app.get('*', function (req, res) {
