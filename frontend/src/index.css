@@ -121,10 +121,10 @@ img {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  height: 100vh;
+  height: auto;
   width: 100vw;
   margin: 0;
-  padding: 10;
+  padding: 0;
 }
 
 .homepage-content-container {
@@ -133,7 +133,6 @@ img {
   align-items: flex-start;
   flex-wrap: wrap; /* Allow posts to wrap to the next row */
   gap: 2rem; /* Add spacing between rows and columns */
-  padding: 1rem;
 }
 
 .homepage-post {
@@ -237,6 +236,11 @@ img {
   justify-content: center; /* Center-align items inside the post */
   align-items: center; /* Center-align items inside the post */
   gap: 1rem;  /* Add spacing between columns */
+}
+
+.MPLP-myamigos-container ul {
+  flex-direction: column; /* Stack items vertically */
+  gap: 1rem; /* Add spacing between rows */
 }
 
 .amigos-page-list{

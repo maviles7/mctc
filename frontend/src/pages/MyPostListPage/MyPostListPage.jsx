@@ -30,9 +30,13 @@ export default function MyPostListPage({ posts, user }) {
   console.log("amigos:", amigosInfo);
 
   const handleDeleteAmigo = async (amigoId) => {
-    const updatedAmigos = await amigoService.deleteAmigo(amigoId);
-    setAmigosInfo({ amigos: updatedAmigos });
-    navigate("/posts");
+    setAmigosInfo((prevAmigosInfo) => ({
+      ...prevAmigosInfo, // Preserve other properties in amigosInfo
+      amigos: prevAmigosInfo.amigos.filter((amigo) => amigo._id !== amigoId), // Remove the deleted amigo
+    }));
+    // const updatedAmigos = await amigoService.deleteAmigo(amigoId);
+    // setAmigosInfo({ amigos: updatedAmigos });
+    // navigate("/posts");
   };
 
   const handleRemoveFromCloset = async (postId) => {

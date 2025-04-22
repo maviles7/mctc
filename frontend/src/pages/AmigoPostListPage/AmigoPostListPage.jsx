@@ -43,7 +43,7 @@ export default function AmigoPostListPage() {
         <h1>{username ? `${username}` : "loading username..."}</h1>
         <div>
           <button onClick={handleAddAmigo} disabled={isAmigoAdded}>
-            {isAmigoAdded ? "Amigo Added" : "Add Amigo"}
+            {isAmigoAdded ? "amigos" : "add amigo"}
           </button>
           <button onClick={handleDeleteAmigo} disabled={isAmigoDeleted}>
             {isAmigoDeleted ? "Amigo Deleted" : "Delete Amigo"}

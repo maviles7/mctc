@@ -16,7 +16,7 @@ export default function NavBar({ user, setUser }) {
         <>
           <Link to="/posts"> mi closet</Link>
           &nbsp; | &nbsp;
-          <Link to="/posts/new">upload stuff to closet</Link>
+          <Link to="/posts/new">post</Link>
           &nbsp; | &nbsp;
           <Link to="/amigos"> find amigos</Link>
           &nbsp; | &nbsp;
